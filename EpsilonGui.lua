@@ -531,8 +531,8 @@ end
 
 local function openCas()
     wait(0.075)
-    for i,v in pairs(game.Workspace:GetDescendants()) do 
-    if v.Name == "Casket" then 
+    for i,v in pairs(game.Workspace.Map.dungeonThingIdk.Caskets:GetDescendants()) do 
+    if v.Name == "Casket" and (hrp.Position - v.MainPartCasket.Position).magnitude <= 71 then 
     fireproximityprompt(v.casketTOP.Union.ProximityPrompt)
     end
     end 
