@@ -176,6 +176,7 @@ local Tab1 = Window:MakeTab({
 
 getgenv().flyHigh = 0
 getgenv().flyBind = Enum.KeyCode.LeftAlt
+getgenv().bananass = 6
 
 Tab1:AddButton({
 	Name = "Fly",
@@ -189,7 +190,7 @@ end)
 
 local Settings = {
 	
-	Speed = 6,
+	Speed = bananass,
 	SprintSpeed = 30,
 	ToggleKey = flyBind,
 	SprintKey = Enum.KeyCode.LeftControl,
@@ -357,6 +358,19 @@ Tab1:AddButton({
     	   		end
 	        end)
   	end    
+})
+
+Tab:AddSlider({
+	Name = "Fly Speed",
+	Min = 0,
+	Max = 20,
+	Default = 5,
+	Color = Color3.fromRGB(255,255,255),
+	Increment = 1,
+	ValueName = "bananas",
+	Callback = function(Value)
+		bananass = Value
+	end    
 })
 
 Tab1:AddParagraph("Fly Info","Default: LeftAlt for Fly (SET BIND BEFORE PRESSING FLY)")
