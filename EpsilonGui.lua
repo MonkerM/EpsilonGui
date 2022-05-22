@@ -748,6 +748,53 @@ end)
   	end    
 })
 
+Tab2:AddToggle({
+	Name = "Auto Artifact",
+	Default = false,
+	Callback = function(Value)
+		getgenv().autoArti = Value
+		if not autoArti then return end
+		while task.wait() do
+		game:GetService("ReplicatedStorage").RerollArtifact:FireServer()
+		if not autoArti then return end
+		end
+	end    
+})
+
+Tab2:AddToggle({
+	Name = "Auto Bulk-Sell",
+	Default = false,
+	Callback = function(Value)
+		getgenv().autoBulk = Value
+		if not autoBulk then return end
+		while task.wait() do
+		game:GetService("ReplicatedStorage").BulkSell:FireServer()
+		if not autoBulk then return end
+		end
+	end    
+})
+
+Tab2:AddButton({
+	Name = "Drop (Quicker than normal but don't spam)",
+	Callback = function()
+        local args = {
+            [1] = game:GetService("Players").LocalPlayer.Character:FindFirstChild(what) or game:GetService("Players").LocalPlayer.Backpack:FindFirstChild(what),
+        }
+
+        game:GetService("Players").LocalPlayer.PlayerGui.Main.Drop.DropItem:FireServer(unpack(args))
+
+  	end    
+})
+
+Tab2:AddTextbox({
+	Name = "Item to Drop",
+	Default = "Heirloom",
+	TextDisappear = true,
+	Callback = function(Value)
+		getgenv().what = Value
+	end	  
+})
+
 --[[local Tab3 = Window:MakeTab({
 	Name = "Spectate",
 	Icon = "rbxassetid://4483345998",
