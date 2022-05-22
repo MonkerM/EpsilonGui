@@ -761,7 +761,7 @@ Tab2:AddToggle({
 	end    
 })
 
-Tab2:AddToggle({
+--[[Tab2:AddToggle({
 	Name = "Auto Bulk-Sell",
 	Default = false,
 	Callback = function(Value)
@@ -772,7 +772,7 @@ Tab2:AddToggle({
 		if not autoBulk then return end
 		end
 	end    
-})
+})]]--
 
 Tab2:AddButton({
 	Name = "Drop (Quicker than normal but don't spam)",
